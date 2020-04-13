@@ -1,0 +1,7 @@
+-Git
+-All state in ReduxRedux
+-Jest and Enzyme
+-Cypress?
+-Deploy to heroku
+-Mongo?
+-PropTypes
