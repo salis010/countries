@@ -17,6 +17,11 @@ app.get('/question1/country/:countryName', (req, res) => {
 		.catch(err => console.log(err))
 })
 
+app.get('/*', function(req, res) {
+	res.sendFile(__dirname + '/dist/index.html')
+  })
+  
+
 
 app.listen(port, function () {
 	console.log(`Listening on port ${port}...`)

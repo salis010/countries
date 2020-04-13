@@ -1,6 +1,5 @@
 const pruneData = country => {
 
-    console.log(country)
     return ({
         name: country.name, 
         capital: country.capital, 

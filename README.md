@@ -1,6 +1,7 @@
 -Git
 -All state in ReduxRedux
--Jest and Enzyme
+-Jest: prundeData
+-Enzyme:
 -Cypress?
 -Deploy to heroku
 -Mongo?
