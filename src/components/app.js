@@ -1,9 +1,14 @@
 import React from 'react'
-import { Question } from './question'
+import { Question1} from './questions/question1/index'
 
-export const App = () =>
-	<>
-		<Question questionNumber={1}>
-			<p>fowefwef</p>
-		</Question>
-	</>
+export const App = () => {
+
+	return (
+		<>
+			<Question1 	/>
+			<Question1 	/>
+			<Question1 	/>
+			<Question1 	/>
+		</>
+	)
+}
