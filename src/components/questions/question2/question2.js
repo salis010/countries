@@ -2,27 +2,26 @@ import React from 'react'
 import styled from 'styled-components'
 import { Question } from '../../question'
 
-
-export const Question2 = ({ country, countryData, setCountry, setCountryData }) => {
-
-	// const getCountry = () =>
-	// 	fetch(`http://localhost:3000/question1/country/${country}`)
-	// 		.then(response => response.json())
-	// 		.then(data => setCountryData(data))
-	// 		.catch(err => console.log(err))
+export const Question2 = ({ country, setCountry, matchingCountries, setMatchingCountries }) => {
+	
+	const getMatchingCountries = () =>
+		fetch(`http://localhost:3000/question2/country/${country}`)
+			.then(response => response.json())
+			.then(data => setMatchingCountries(data))
+			.catch(err => console.log(err))
 
 	const handleChange = event => setCountry(event.target.value)
 	 
 	return ( 
 		<Question questionNumber={2}>			
-			{/* <input value={country} onChange={handleChange}/>
-			{countryData && <ul>
-				{Object.keys(countryData).map(item => 
-					<li key={item}>
-						{item}: {countryData[item]}
+			<input value={country} onChange={handleChange}/>
+			{matchingCountries && <ul>
+				{matchingCountries.map(country => 
+					<li key={country}>
+						{country}
 					</li>)}
 			</ul>}
-			<button onClick={getCountry}>Question 1</button> */}
+			<button onClick={getMatchingCountries}>Question 2</button>
 		</Question>
 	 )
 }
