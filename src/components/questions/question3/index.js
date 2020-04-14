@@ -1,16 +1,15 @@
 import { connect } from 'react-redux'
-import { setCountry, setCountryData } from '../../../store/actions'
+import { setCountry, setMatchingCountries } from '../../../store/actions'
 import { Question3 as Component } from './question3'
 
-const mapStateToProps = state =>
-    ({
+const mapStateToProps = state => ({
         country: state.country,
-        countryData: state.countryData,
+        matchingCountries: state.matchingCountries,
     })
 
 const mapDispatchToProps = dispatch => ({
         setCountry: country => dispatch(setCountry(country)),
-        setCountryData: countryData => dispatch(setCountryData(countryData)),
+        setMatchingCountries: matchingCountries => dispatch(setMatchingCountries(matchingCountries)),
 })
 
 export const Question3 = connect(mapStateToProps, mapDispatchToProps)(Component)

@@ -3,26 +3,27 @@ import styled from 'styled-components'
 import { Question } from '../../question'
 
 
-export const Question3 = ({ country, countryData, setCountry, setCountryData }) => {
-
-	const getCountry = () =>
-		fetch(`http://localhost:3000/question1/country/${country}`)
+export const Question3 = ({ country, setCountry, matchingCountries, setMatchingCountries }) => {
+	
+	const getMatchingCountries = () =>
+		fetch(`https://restcountries.eu/rest/v2/name/${country}`)
 			.then(response => response.json())
-			.then(data => setCountryData(data))
+			.then(data => data.map(country => country.name))
+			.then(data => setMatchingCountries(data))
 			.catch(err => console.log(err))
 
 	const handleChange = event => setCountry(event.target.value)
 	 
 	return ( 
-		<Question questionNumber={1}>			
+		<Question questionNumber={3}>			
 			<input value={country} onChange={handleChange}/>
-			{countryData && <ul>
-				{Object.keys(countryData).map(item => 
-					<li key={item}>
-						{item}: {countryData[item]}
+			{matchingCountries && <ul>
+				{matchingCountries.map(country => 
+					<li key={country}>
+						{country}
 					</li>)}
 			</ul>}
-			<button onClick={getCountry}>Question 1</button>
+			<button onClick={getMatchingCountries}>Question 3</button>
 		</Question>
 	 )
 }

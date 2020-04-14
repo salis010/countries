@@ -1,10 +1,9 @@
-import { SELECT_COUNTRY, SET_COUNTRY_DATA, MATCH_COUNTRIES, APPLY_FILTER } from './action-types'
+import { SELECT_COUNTRY, SET_COUNTRY_DATA, MATCH_COUNTRIES } from './action-types'
 
 const initialState = {
     country: '',
     countryData: [],
     matchingCountries: [],
-    filter: '',
 }
 
 export const rootReducer = (state = initialState, action) => {
@@ -18,9 +17,6 @@ export const rootReducer = (state = initialState, action) => {
 
         case MATCH_COUNTRIES:
             return ({ ...state, matchingCountries: action.payload })
-        
-        case APPLY_FILTER:
-            return ({ ...state, filter: action.payload })
         
         default:
             return state
