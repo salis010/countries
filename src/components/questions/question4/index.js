@@ -1,16 +1,21 @@
 import { connect } from 'react-redux'
-import { setCountry, setCountryData } from '../../../store/actions'
+import { setBalance, setWin, setLineResult } from '../../../store/actions'
 import { Question4 as Component } from './question4'
 
-const mapStateToProps = state =>
+
+const mapStateToProps = ({ slotState }) =>
     ({
-        country: state.country,
-        countryData: state.countryData,
+        balance: slotState.balance,
+        win: slotState.win,
+        lineResult: slotState.lineResult,
     })
 
-const mapDispatchToProps = dispatch => ({
-        setCountry: country => dispatch(setCountry(country)),
-        setCountryData: countryData => dispatch(setCountryData(countryData)),
-})
+const mapDispatchToProps = dispatch => {
+    return ({    
+        setBalance: balance => dispatch(setBalance(balance)),
+        setWin: win => dispatch(setWin(win)),
+        setLineResult: lineResult => dispatch(setLineResult(lineResult)),
+    })
+}
 
 export const Question4 = connect(mapStateToProps, mapDispatchToProps)(Component)
