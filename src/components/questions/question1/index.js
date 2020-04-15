@@ -2,10 +2,10 @@ import { connect } from 'react-redux'
 import { setCountry, setCountryData } from '../../../store/actions'
 import { Question1 as Component } from './question1'
 
-const mapStateToProps = state =>
+const mapStateToProps = ({ countriesState }) =>
     ({
-        country: state.country,
-        countryData: state.countryData,
+        country: countriesState.country,
+        countryData: countriesState.countryData,
     })
 
 const mapDispatchToProps = dispatch => ({
