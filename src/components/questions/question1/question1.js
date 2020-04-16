@@ -1,12 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Question } from '../../question'
+import { baseUrl } from '../../../constants'
 
 
 export const Question1 = ({ country, countryData, setCountry, setCountryData }) => {
 
 	const getCountry = () =>
-		fetch(`http://localhost:3000/question1/country/${country}`)
+		fetch(`${baseUrl}/question1/country/${country}`)
 			.then(response => response.json())
 			.then(data => setCountryData(data))
 			.catch(err => console.log(err))

@@ -3,6 +3,7 @@ Question 2
 Question 3
 Any matching functions between Questions 2 & 3 and maybe others?
 Use a baseUrl if you are going to deply to Heroku
+look for 'props' and delete/change
 
 Can rest be used here:
 const mapStateToProps = state => ({
@@ -11,7 +12,9 @@ const mapStateToProps = state => ({
         filteredCountries: state.filteredCountries,
     })
 
+theme.js is in Question 5, make it more global
 
+Question5: password to be hashed
 
 -Git
 -All state in ReduxRedux

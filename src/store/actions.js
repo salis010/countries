@@ -7,6 +7,10 @@ import {
     SET_WIN,
     SET_BALANCE,
     SET_LINE_RESULT,
+    SET_NAME,
+    SET_EMAIL,
+    SET_PASSWORD,
+    SET_FORM_VALID,
 } from './action-types'
 
 //countries
@@ -20,3 +24,9 @@ export const setFilteredCountries = filteredCountries => ({ type: SET_FILTERED_C
 export const setBalance = balance => ({ type: SET_BALANCE, payload: balance})
 export const setWin = win => ({ type: SET_WIN, payload: win })
 export const setLineResult = lineResult => ({ type: SET_LINE_RESULT, payload: lineResult })
+
+//registration
+export const setName = name => ({ type: SET_NAME, payload: name })
+export const setEmail = email => ({ type: SET_EMAIL, payload: email })
+export const setPassword = password => ({ type: SET_PASSWORD, payload: password })
+export const setFormValid = isFormValid => ({ type: SET_FORM_VALID, payload: isFormValid })
