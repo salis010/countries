@@ -11,3 +11,9 @@ export const SET_FILTERED_COUNTRIES = 'SET_FILTERED_COUNTRIES'
 export const SET_BALANCE = 'SET_BALANCE'
 export const SET_WIN = 'SET_WIN'
 export const SET_LINE_RESULT = 'SET_LINE_RESULT'
+
+// Registration
+export const SET_NAME = 'SET_NAME'
+export const SET_EMAIL = 'SET_EMAIL'
+export const SET_PASSWORD = 'SET_PASSWORD' 
+export const SET_FORM_VALID = 'SET_FORM_VALID'

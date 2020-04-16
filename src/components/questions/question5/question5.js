@@ -1,28 +1,84 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Question } from '../../question'
+import { Field } from './field'
+import { InputField } from './input-field'
+import { isNameValid, isEmailValid, isPasswordValid } from './utils'
+import { registerUser } from './register-user'
 
 
-export const Question5 = ({ country, countryData, setCountry, setCountryData }) => {
+const Wrapper = styled.div`
+	display: flex;
+	justify-content: center;
+`
 
-	const getCountry = () =>
-		fetch(`http://localhost:3000/question1/country/${country}`)
-			.then(response => response.json())
-			.then(data => setCountryData(data))
-			.catch(err => console.log(err))
+const FormWrapper = styled.div`
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-gap: 4rem;
+`
 
-	const handleChange = event => setCountry(event.target.value)
-	 
+
+export const Question5 = ({ 
+		name, setName, 
+		email, setEmail, 
+		password, setPassword, 
+		isFormValid, setFormValid 
+	}) => {
+
+	const checkFormValidity = () => name.isValid && email.isValid && password.isValid
+
+	const handleClick = () => {
+		registerUser({
+			name: name,
+			email: email, 
+			password: password
+		})
+	}
+
 	return ( 
-		<Question questionNumber={1}>			
-			<input value={country} onChange={handleChange}/>
-			{countryData && <ul>
-				{Object.keys(countryData).map(item => 
-					<li key={item}>
-						{item}: {countryData[item]}
-					</li>)}
-			</ul>}
-			<button onClick={getCountry}>Question 1</button>
-		</Question>
+		<Wrapper>			
+			<Question questionNumber={5}>			
+				<FormWrapper>
+					<Field fieldStatus={name.status} isValid={name.isValid} errorMessage="Error: must be longer with no spaces">
+						<InputField 
+							name='name'
+							label='Name'
+							text={name.value}
+							validator={isNameValid}
+							setFormValue={setName}
+							isFormValid={isFormValid}
+							setFormValid={setFormValid}
+							checkFormValidity={checkFormValidity}
+						/>
+					</Field>
+					<Field fieldStatus={email.status} isValid={email.isValid} errorMessage="Error: must be ____@__.__">
+						<InputField 
+							name='email'
+							label='email'
+							text={email.value}
+							validator={isEmailValid}
+							setFormValue={setEmail}
+							isFormValid={isFormValid}
+							setFormValid={setFormValid}
+							checkFormValidity={checkFormValidity}
+						/>
+					</Field>
+					<Field fieldStatus={password.status} isValid={password.isValid} errorMessage="Error: must be longer with no spaces">
+						<InputField 
+							name='password'
+							label='Password'
+							text={password.value}
+							validator={isPasswordValid}
+							setFormValue={setPassword}
+							isFormValid={isFormValid}
+							setFormValid={setFormValid}
+							checkFormValidity={checkFormValidity}
+						/>
+					</Field>
+					<button disabled={!isFormValid} onClick={handleClick}>Register</button>				
+				</FormWrapper>		
+			</Question>
+		</Wrapper>
 	 )
 }

@@ -1,28 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Question } from '../../question'
+import { baseUrl } from '../../../constants'
 
 
-export const Question6 = ({ country, countryData, setCountry, setCountryData }) => {
+export const Question6 = (props) => {
 
-	const getCountry = () =>
-		fetch(`http://localhost:3000/question1/country/${country}`)
+	const login = () => {
+		console.log('login')
+		// fetch(`${baseUrl}/question2/country/${country}`)
+		fetch(`${baseUrl}/login`)
 			.then(response => response.json())
-			.then(data => setCountryData(data))
+			.then(data => console.log(data))
 			.catch(err => console.log(err))
-
-	const handleChange = event => setCountry(event.target.value)
+	}
 	 
 	return ( 
-		<Question questionNumber={1}>			
-			<input value={country} onChange={handleChange}/>
-			{countryData && <ul>
-				{Object.keys(countryData).map(item => 
-					<li key={item}>
-						{item}: {countryData[item]}
-					</li>)}
-			</ul>}
-			<button onClick={getCountry}>Question 1</button>
+		<Question questionNumber={6}>			
+			
+			<button onClick={login}>Login</button>
 		</Question>
 	 )
 }
