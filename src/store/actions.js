@@ -11,6 +11,9 @@ import {
     SET_EMAIL,
     SET_PASSWORD,
     SET_FORM_VALID,
+    SET_LOGIN_NAME,
+    SET_LOGIN_EMAIL,
+    SET_LOGIN_PASSWORD,
 } from './action-types'
 
 //countries
@@ -30,3 +33,8 @@ export const setName = name => ({ type: SET_NAME, payload: name })
 export const setEmail = email => ({ type: SET_EMAIL, payload: email })
 export const setPassword = password => ({ type: SET_PASSWORD, payload: password })
 export const setFormValid = isFormValid => ({ type: SET_FORM_VALID, payload: isFormValid })
+
+//login
+export const setLoginName = email => ({ type: SET_LOGIN_NAME, payload: email })
+export const setLoginEmail = email => ({ type: SET_LOGIN_EMAIL, payload: email })
+export const setLoginPassword = password => ({ type: SET_LOGIN_PASSWORD, payload: password })

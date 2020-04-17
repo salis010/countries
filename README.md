@@ -1,6 +1,6 @@
 NEXT:
-Question 2
-Question 3
+mongo: https://www.freecodecamp.org/news/securing-node-js-restful-apis-with-json-web-tokens-9f811a92bb52/
+
 Any matching functions between Questions 2 & 3 and maybe others?
 Use a baseUrl if you are going to deply to Heroku
 look for 'props' and delete/change
@@ -14,7 +14,18 @@ const mapStateToProps = state => ({
 
 theme.js is in Question 5, make it more global
 
-Question5: password to be hashed
+Question5: Shortcomnings:
+does not check whether the user is already registered
+password is saved in clear text
+
+node store secret in environmental variable
+
+Wrapper and Form Wrapper are common in Questions 5 and 6
+isFormValid is not used in INputField
+
+Why aren't Field and InputField a single component?
+
+use <form>
 
 -Git
 -All state in ReduxRedux
@@ -24,6 +35,8 @@ Question5: password to be hashed
 -Deploy to heroku
 -Mongo?
 -PropTypes
+
+Question 6 has no validaton.
 
 
 ## How to run the project

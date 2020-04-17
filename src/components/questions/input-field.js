@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { PropTypes } from 'prop-types'
 import styled from 'styled-components'
-import { breakpoint, lgrey, dgrey, fieldHMargin } from './theme'
-import { fieldStatus } from './utils'
+import { breakpoint, lgrey, dgrey, fieldHMargin } from '../../styles/theme'
+import { fieldStatus } from '../../constants'
 
 
 const Wrapper = styled.div`

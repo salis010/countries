@@ -2,12 +2,17 @@ const express = require('express')
 const axios = require('axios')
 const pruneData = require('./src/backend/prune-data')
 const getCountriesNames = require('./src/backend/get-countries-names')
-const registerUser = require('./src/backend/register-user')
+const getBody = require('./src/backend/get-body')
+const jwt = require('./src/backend/auth/jwt')
+const authenticate = require('./src/backend/auth/authenticate')
+const secret = require('./src/backend/auth/config')
 
 const app = express()
 const port = 3000
 
-let registration
+let registeredUsers = []
+
+app.set('jwtSecretToken', secret)
 
 app.use(express.static(__dirname))
 app.use(express.static(__dirname + '/dist'))	
@@ -30,9 +35,8 @@ app.get('/question2/country/:countryName', (req, res) => {
 		.catch(err => console.log(err))
 })
 
-app.get('/login', (req, res) => {
-	console.log('login:', registration)
-	res.json(registration)
+app.get('/question4', (req, res) => {
+	res.send('yeah')
 })
 
 app.get('/*', function(req, res) {
@@ -40,12 +44,39 @@ app.get('/*', function(req, res) {
   })
 
 
-app.post('/register-user', (req, res) => {
-	registerUser(req, res)
-		.then(data => registration = data)
-		.catch(err => console.log(err))
+app.post('/login', (req, res) => {
+	getBody(req)
+		.then(credentials => {
+			authenticate(registeredUsers, credentials)
+			.then(data => res.json(data))
+			.catch(err => {
+				res.status(401)
+				res.send({'error': err})
+				console.log('Login error:', err)
+			})
+		})		
+		.catch(err => {
+			res.status(401)
+			res.send({'error': err})
+			console.log('Login error:', err)
+	})
 })
-  
+
+app.post('/register-user', (req, res) => {
+	getBody(req, res)
+		.then(data => registeredUsers.push(data))
+		.then(() => console.log(registeredUsers))
+		.catch(err => {
+			console.error('Error', err)
+            res.status(500)
+            res.send({'error': err})
+		})
+})
+ 
+
+
+
+ 
 
 app.listen(port, function () {
 	console.log(`Listening on port ${port}...`)

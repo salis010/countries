@@ -17,3 +17,8 @@ export const SET_NAME = 'SET_NAME'
 export const SET_EMAIL = 'SET_EMAIL'
 export const SET_PASSWORD = 'SET_PASSWORD' 
 export const SET_FORM_VALID = 'SET_FORM_VALID'
+
+//login
+export const SET_LOGIN_NAME = 'SET_LOGIN_NAME'
+export const SET_LOGIN_EMAIL = 'SET_LOGIN_EMAIL'
+export const SET_LOGIN_PASSWORD = 'SET_LOGIN_PASSWORD'

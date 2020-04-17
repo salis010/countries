@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Question } from '../../question'
-import { Field } from './field'
-import { InputField } from './input-field'
-import { isNameValid, isEmailValid, isPasswordValid } from './utils'
+import { Field } from '../field'
+import { InputField } from '../input-field'
+import { isNameValid, isEmailValid, isPasswordValid } from '../utils'
 import { registerUser } from './register-user'
 
 

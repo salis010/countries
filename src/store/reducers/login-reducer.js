@@ -1,9 +1,8 @@
 import { fieldStatus } from '../../constants'
 import { 
-    SET_NAME, 
-    SET_EMAIL,
-    SET_PASSWORD, 
-    SET_FORM_VALID
+    SET_LOGIN_NAME,
+    SET_LOGIN_EMAIL,
+    SET_LOGIN_PASSWORD, 
 } from '../action-types'
 
 const initialState = {
@@ -22,24 +21,20 @@ const initialState = {
         status: fieldStatus.notVisited,
         isValid: false,
     },
-    isFormValid: false,
 }
 
 
-export const registrationReducer = (state = initialState, action) => {
+export const loginReducer = (state = initialState, action) => {
     switch(action.type) {
-        
-        case SET_NAME:
-            return ({ ...state, name: action.payload })
 
-        case SET_EMAIL:
+        case SET_LOGIN_NAME:
+            return ({ ...state, name: { value: action.payload, status: fieldStatus.notVisited, isValid: false} })
+
+        case SET_LOGIN_EMAIL:
             return ({ ...state, email: action.payload })
         
-        case SET_PASSWORD:
+        case SET_LOGIN_PASSWORD:
             return ({ ...state, password: action.payload })
-
-        case SET_FORM_VALID:
-            return ({ ...state, isFormValid: action.payload })
         
         default:
             return state
