@@ -1,11 +1,11 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
 import styled from 'styled-components'
-import { breakpoint, borderRadius, lgrey, errorColor, fieldHMargin } from './theme'
-import { fieldStatus as field } from './utils'
-import edit from './images/edit.png'
-import check from './images/check.png'
-import wrong from './images/wrong.png'
+import { breakpoint, borderRadius, lgrey, errorColor, fieldHMargin } from '../../styles/theme'
+import { fieldStatus as field } from '../../constants'
+import edit from '../../images/edit.png'
+import check from '../../images/check.png'
+import wrong from '../../images/wrong.png'
 
 const images = [edit, wrong, check]
 

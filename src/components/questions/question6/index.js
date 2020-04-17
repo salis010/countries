@@ -1,16 +1,19 @@
 import { connect } from 'react-redux'
-import { setCountry, setCountryData } from '../../../store/actions'
+import { setLoginName, setLoginEmail, setLoginPassword } from '../../../store/actions'
 import { Question6 as Component } from './question6'
 
-const mapStateToProps = state =>
+
+const mapStateToProps = ({ loginState }) => 
     ({
-        country: state.country,
-        countryData: state.countryData,
+        name: loginState.name,
+        email: loginState.email,
+        password: loginState.password,
     })
 
 const mapDispatchToProps = dispatch => ({
-        setCountry: country => dispatch(setCountry(country)),
-        setCountryData: countryData => dispatch(setCountryData(countryData)),
+        setLoginName: name => dispatch(setLoginName(name)),
+        setLoginEmail: email => dispatch(setLoginEmail(email)),
+        setLoginPassword: password => dispatch(setLoginPassword(password)),
 })
 
 export const Question6 = connect(mapStateToProps, mapDispatchToProps)(Component)
