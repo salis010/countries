@@ -18,8 +18,8 @@ export const Question6 = ({
 		
 		const formData = new FormData()
     
-		formData.set('email', email.value)
-		formData.set('password', password.value)
+		formData.set('email', email)
+		formData.set('password', password)
 
 		fetch(`${baseUrl}/login`, {
 			method: 'POST',
@@ -39,8 +39,8 @@ export const Question6 = ({
 	 
 	return ( 
 		<Question questionNumber={6}>			
-			{name.value && <h2>Logged in as {name.value}</h2>}
-			{!name.value && <Form>
+			{name && <h2>Logged in as {name}</h2>}
+			{!name && <Form>
 				<InputSimple
 					label='email'
 					text={email}

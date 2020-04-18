@@ -1,19 +1,18 @@
-export const getRandomNumber = max => Math.floor(Math.random() * Math.floor(max + 1))
+export const getRandomNumber = max => Math.floor(Math.random() * Math.floor(max))
 
 export const spinTheReels = () => {
+
+    const reelsLayout = [
+        [3, 0, 2, 0, 1, 1, 0, 0],
+        [0, 2, 0, 0, 3, 2, 1, 0],
+        [0, 2, 0, 2, 3, 0, 1, 0]
+    ]
 
     // symbol mapping
 	// lemon: 	0
 	// banana: 1
 	// apple: 	2
 	// cherry: 3
-
-	const reelsLayout = [
-		[3, 0, 2, 0, 1, 1, 0, 0],
-		[0, 2, 0, 0, 3, 2, 1, 0],
-		[0, 2, 0, 2, 3, 0, 1, 0]
-	]
-
 	
 	let cherries = 0
     let apples = 0
@@ -24,8 +23,9 @@ export const spinTheReels = () => {
     const lineResult = [0, 0, 0]
 
     for(let i = 0; i < lineResult.length; i++) {
-        lineResult[i] = getRandomNumber(3)
-
+    
+        lineResult[i] = reelsLayout[i][getRandomNumber(reelsLayout[i].length)]
+    
         switch(lineResult[i]) {
             case 0: 
                 lemons++ 
@@ -43,6 +43,7 @@ export const spinTheReels = () => {
         }
     }
 
+    // start from most probable to the least probable
     if(lemons === 3) {
         win = 3
     } else if( bananas === 2) {
@@ -58,6 +59,6 @@ export const spinTheReels = () => {
     } else if( cherries === 3) {
         win = 50
     }
-    
+
     return { lineResult, win }
 }
