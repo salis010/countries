@@ -1,32 +1,19 @@
 import React from 'react'
-import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { Question } from '../../question'
-import { Field } from '../field'
-import { InputField } from '../input-field'
+import { Form } from '../../common'
+import { Input } from '../../input-components/input/index'
+import { Button } from '../../common'
 import { isNameValid, isEmailValid, isPasswordValid } from '../utils'
 import { registerUser } from './register-user'
-
-
-const Wrapper = styled.div`
-	display: flex;
-	justify-content: center;
-`
-
-const FormWrapper = styled.div`
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-gap: 4rem;
-`
 
 
 export const Question5 = ({ 
 		name, setName, 
 		email, setEmail, 
 		password, setPassword, 
-		isFormValid, setFormValid 
+		isFormValid
 	}) => {
-
-	const checkFormValidity = () => name.isValid && email.isValid && password.isValid
 
 	const handleClick = () => {
 		registerUser({
@@ -37,48 +24,55 @@ export const Question5 = ({
 	}
 
 	return ( 
-		<Wrapper>			
-			<Question questionNumber={5}>			
-				<FormWrapper>
-					<Field fieldStatus={name.status} isValid={name.isValid} errorMessage="Error: must be longer with no spaces">
-						<InputField 
-							name='name'
-							label='Name'
-							text={name.value}
-							validator={isNameValid}
-							setFormValue={setName}
-							isFormValid={isFormValid}
-							setFormValid={setFormValid}
-							checkFormValidity={checkFormValidity}
-						/>
-					</Field>
-					<Field fieldStatus={email.status} isValid={email.isValid} errorMessage="Error: must be ____@__.__">
-						<InputField 
-							name='email'
-							label='email'
-							text={email.value}
-							validator={isEmailValid}
-							setFormValue={setEmail}
-							isFormValid={isFormValid}
-							setFormValid={setFormValid}
-							checkFormValidity={checkFormValidity}
-						/>
-					</Field>
-					<Field fieldStatus={password.status} isValid={password.isValid} errorMessage="Error: must be longer with no spaces">
-						<InputField 
-							name='password'
-							label='Password'
-							text={password.value}
-							validator={isPasswordValid}
-							setFormValue={setPassword}
-							isFormValid={isFormValid}
-							setFormValid={setFormValid}
-							checkFormValidity={checkFormValidity}
-						/>
-					</Field>
-					<button disabled={!isFormValid} onClick={handleClick}>Register</button>				
-				</FormWrapper>		
+		<Question questionNumber={5}>			
+			<Form>
+				<Input 
+					fieldStatus={name.status} 
+					isValid={name.isValid} 
+					errorMessage="Error: must be longer with no spaces"
+					name='name'
+					label='Name'
+					text={name.value}
+					validator={isNameValid}
+					setFieldValue={setName}
+				/>
+				<Input
+					fieldStatus={email.status}
+					isValid={email.isValid}
+					errorMessage="Error: must be ____@__.__"	
+					name='email'
+					label='email'
+					text={email.value}
+					validator={isEmailValid}
+					setFieldValue={setEmail}
+				/>
+				<Input 
+					type='password'
+					fieldStatus={password.status}
+					isValid={password.isValid}
+					errorMessage="Error: must be longer with no spaces"
+					name='password'
+					label='Password'
+					text={password.value}
+					validator={isPasswordValid}
+					setFieldValue={setPassword}
+				/>
+				<Button 
+					disabled={!isFormValid} 
+					onClick={handleClick}>
+						Register
+				</Button>				
+			</Form>		
 			</Question>
-		</Wrapper>
 	 )
+}
+
+Question5.propTypes = {
+	name: PropTypes.object.isRequired,
+	setName: PropTypes.func.isRequired, 
+	email: PropTypes.object.isRequired,
+	setEmail: PropTypes.func.isRequired, 
+	password: PropTypes.object.isRequired,
+	setPassword: PropTypes.func.isRequired, 
+	isFormValid: PropTypes.bool.isRequired,
 }

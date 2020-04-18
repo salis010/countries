@@ -1,42 +1,20 @@
 NEXT:
 mongo: https://www.freecodecamp.org/news/securing-node-js-restful-apis-with-json-web-tokens-9f811a92bb52/
 
-Any matching functions between Questions 2 & 3 and maybe others?
-Use a baseUrl if you are going to deply to Heroku
-look for 'props' and delete/change
-
-Can rest be used here:
-const mapStateToProps = state => ({
-        country: state.country,
-        allCountries: state.allCountries,
-        filteredCountries: state.filteredCountries,
-    })
-
-theme.js is in Question 5, make it more global
 
 Question5: Shortcomnings:
-does not check whether the user is already registered
-password is saved in clear text
+- does not check whether the user is already registered
+- password is saved in clear text
+- once the user presses register, nothing happens
 
 node store secret in environmental variable
 
-Wrapper and Form Wrapper are common in Questions 5 and 6
-isFormValid is not used in INputField
-
-Why aren't Field and InputField a single component?
-
-use <form>
-
--Git
--All state in ReduxRedux
--Jest: prundeData
+-Jest: backend functions, util functions
 -Enzyme:
 -Cypress?
 -Deploy to heroku
--Mongo?
--PropTypes
 
-Question 6 has no validaton.
+
 
 
 ## How to run the project
@@ -70,3 +48,5 @@ Also, the function used:
 ## Question 4
 
 The game has a positive RTP!
+
+## Question 6 has no validaton.

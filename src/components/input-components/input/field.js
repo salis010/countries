@@ -1,11 +1,11 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
 import styled from 'styled-components'
-import { breakpoint, borderRadius, lgrey, errorColor, fieldHMargin } from '../../styles/theme'
-import { fieldStatus as field } from '../../constants'
-import edit from '../../images/edit.png'
-import check from '../../images/check.png'
-import wrong from '../../images/wrong.png'
+import { breakpoint, borderRadius, lgrey, errorColor, fieldHMargin } from '../../../styles/theme'
+import { fieldStatus as field } from '../../../constants'
+import edit from '../../../images/edit.png'
+import check from '../../../images/check.png'
+import wrong from '../../../images/wrong.png'
 
 const images = [edit, wrong, check]
 
@@ -13,12 +13,11 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     position: relative;
-    height: 80px;
     border-radius: ${borderRadius};
     box-shadow: 0px 10px 20px ${lgrey};
 
     @media (min-width: ${breakpoint}) {
-        height: 100px;
+        height: 90px;
     }
 `
 
@@ -78,4 +77,5 @@ Field.propTypes = {
     errorMessage: PropTypes.string,
     fieldStatus: PropTypes.number,
     isValid: PropTypes.bool,
+    children: PropTypes.object,
 }

@@ -1,18 +1,22 @@
 import React, { useEffect } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Question } from '../../question'
-
-export const filterStringArray = (arr, filter) => {
-	
-	const rx = new RegExp(`${filter}`, 'i')
-
-	const results = arr.filter(str => rx.test(str))
-
-	return results
-}
+import { InputSimple } from '../../input-components/input-simple/index'
+import { Button } from '../../common'
+import { filterStringArray } from '../utils'
 
 
-export const Question3 = ({ country, setCountry, allCountries, setAllCountries, filteredCountries, setFilteredCountries }) => {
+const ButtonWrapper = styled.div`
+	display: flex;
+	margin-top: 2rem;
+`
+
+export const Question3 = ({ 
+		country, setCountry, 
+		allCountries, setAllCountries, 
+		filteredCountries, setFilteredCountries 
+	}) => {
 	
 	useEffect(() => {
 		getAllCountries()
@@ -25,7 +29,7 @@ export const Question3 = ({ country, setCountry, allCountries, setAllCountries, 
 			.then(data => setAllCountries(data))
 			.catch(err => console.log(err))
 
-	const handleChange = event => setCountry(event.target.value)
+	const handleChange = country => setCountry(country)
 	 
 	const handleFilterButton = () => {
 		const filteredCountries = filterStringArray(allCountries, country)
@@ -33,17 +37,35 @@ export const Question3 = ({ country, setCountry, allCountries, setAllCountries, 
 		setFilteredCountries(filteredCountries)
 	}
 
-
 	return ( 
 		<Question questionNumber={3}>			
-			<input value={country} onChange={handleChange}/>
-			<button onClick={handleFilterButton}>Filter</button>
-			{filteredCountries && <ul>
-				{filteredCountries.map(country => 
-					<li key={country}>
-						{country}
-					</li>)}
-			</ul>}			
+			<InputSimple 
+				text={country} 
+				label='Country'
+				setFieldValue={handleChange} 
+			/>
+			<ButtonWrapper>
+				<Button 
+					onClick={handleFilterButton}
+				>			
+					Filter
+				</Button>
+			</ButtonWrapper>
+				{filteredCountries && <ul>
+					{filteredCountries.map(country => 
+						<li key={country}>
+							{country}
+						</li>)}
+				</ul>}			
 		</Question>
 	 )
+}
+
+Question3.propTypes = {
+	country: PropTypes.string.isRequired,
+	setCountry: PropTypes.func.isRequired,
+	allCountries: PropTypes.array.isRequired,
+	setAllCountries: PropTypes.func.isRequired,
+	filteredCountries: PropTypes.array.isRequired,
+	setFilteredCountries: PropTypes.func.isRequired,	
 }

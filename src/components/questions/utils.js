@@ -1,4 +1,15 @@
+export const filterStringArray = (arr, filter) => {
+	
+	const rx = new RegExp(`${filter}`, 'i')
+
+	const results = arr.filter(str => rx.test(str))
+
+	return results
+}
+
+
 export const isNameValid = str => str.length > 1 && /^[a-zA-Z]*$/.test(str)
+
 
 export const isEmailValid = strEmail => {
 
@@ -6,5 +17,6 @@ export const isEmailValid = strEmail => {
     
     return regex.test(strEmail)
 }
+
 
 export const isPasswordValid = str => str.length > 5 && /^[a-zA-Z0-9!@#$%^&*()_+=-]+$/.test(str)
