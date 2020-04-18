@@ -9,8 +9,13 @@ Question5: Shortcomnings:
 
 node store secret in environmental variable
 
--Jest: backend functions, util functions
 -Enzyme:
+-Question 1
+
+-Question 4: test that the correct images are being shown
+
+-Question 5: test that the button is enabled if all fields are valid
+
 -Cypress?
 -Deploy to heroku
 
@@ -18,6 +23,10 @@ node store secret in environmental variable
 
 
 ## How to run the project
+
+To run tests:
+
+execute `npm run test` in terminal
 
 ## Redux
 
@@ -47,6 +56,28 @@ Also, the function used:
 
 ## Question 4
 
-The game has a positive RTP!
+The reel symbols are enumerated.
+
+During a spin, 'symbol' variables for each appearing symbol are incremented.
+
+The win amount is estimated depending on the values of these 'symbol' variables.
+
+This game has a positive RTP, which is not normal, so I had to check again and again.
+
+The respective jest test ('/__tests__/slot-game/slot-game.test.js') does not make use of the same game logic, so that if there is a mistake in the logic used for the game, it is not repeated in the test.
+
+The test:
+- determines the number of unique symbols in the line
+- determines the frequency of each symbol in the line
+- pushes these values in an array and sorts it in descending order according to symbol frequency
+- if the number of unique symbols is 3, it means all symbols are different and there is no win
+- if the number of unique symbols is 2, it means that there are two matching symbols. Since the array is sorted in descending order, reading the first element of the array will tell the winning symbol
+- if the number of unique symbols is 1, it means that there are three matching symbols.
+- the returned win from the game is compated to the win determined during the test, and if it matches, 'true' is pushed to a 'results' array. If it does not match, 'false' is pushed into the array
+- This is repeated for many times, say 1,000,000
+- If all spins have had there win successfully counterchecked, then there should be no 'false' entry in the 'results' array:
+
+```expect(results.includes(false)).toBe(false)```
+
 
 ## Question 6 has no validaton.

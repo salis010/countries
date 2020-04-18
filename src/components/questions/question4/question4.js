@@ -21,21 +21,19 @@ export const Question4 = ({ balance, setBalance, win, setWin, lineResult, setLin
 		setBalance(balance - 1 + win)
 		setLineResult(lineResult)
 
-		// RTP check
+		// // RTP check
 		// let totalWin = 0
 		// const spins = 1000000
 		// for(let i = 0; i < spins; i++) {
 		// 	totalWin += spinTheReels().win
 		// }
 		// console.log('RTP:', `${(totalWin / spins) * 100}%`)
-		// The RTP of the game is around 900%!
 	}
 
 	return ( 
 		<Question questionNumber={4}>			
 			<p>Balance: {balance}</p>
 			<p>Win: {win}</p>
-			<p>Line: {lineResult}</p>
 			<LineWrapper>
 				<img src={getImage(lineResult[0])} />
 				<img src={getImage(lineResult[1])} />

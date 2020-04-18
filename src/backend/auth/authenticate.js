@@ -7,11 +7,10 @@ const authenticate = (registeredUsers, credentials) => {
 
     const promise = new Promise((resolve, reject) => {
         const user = registeredUsers.find(registeredUser => registeredUser.email == email && registeredUser.password == password)
-
+        console.log(credentials)
         if(user) {
             const token = jwt.sign({ name: user.name }, secret)
 
-            // resolve({token: token, name: user.name})
             resolve(token)
         }
         else (
@@ -22,6 +21,5 @@ const authenticate = (registeredUsers, credentials) => {
     return promise
 
 }
-
 
 module.exports = authenticate

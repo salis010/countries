@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
     justify-content: center;
 `
 
-export const Form = styled.form`
+export const Form = styled.div`
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 1rem;
