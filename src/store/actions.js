@@ -10,7 +10,6 @@ import {
     SET_NAME,
     SET_EMAIL,
     SET_PASSWORD,
-    SET_FORM_VALID,
     SET_LOGIN_NAME,
     SET_LOGIN_EMAIL,
     SET_LOGIN_PASSWORD,
@@ -32,7 +31,6 @@ export const setLineResult = lineResult => ({ type: SET_LINE_RESULT, payload: li
 export const setName = name => ({ type: SET_NAME, payload: name })
 export const setEmail = email => ({ type: SET_EMAIL, payload: email })
 export const setPassword = password => ({ type: SET_PASSWORD, payload: password })
-export const setFormValid = isFormValid => ({ type: SET_FORM_VALID, payload: isFormValid })
 
 //login
 export const setLoginName = email => ({ type: SET_LOGIN_NAME, payload: email })

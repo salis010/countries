@@ -6,21 +6,9 @@ import {
 } from '../action-types'
 
 const initialState = {
-    name: { 
-        value: '',
-        status: fieldStatus.notVisited,
-        isValid: false,
-    },
-    email: { 
-        value: '',
-        status: fieldStatus.notVisited,
-        isValid: false,
-    },
-    password: { 
-        value: '',
-        status: fieldStatus.notVisited,
-        isValid: false,
-    },
+    name: '',
+    email: '',
+    password: '',
 }
 
 
@@ -28,7 +16,7 @@ export const loginReducer = (state = initialState, action) => {
     switch(action.type) {
 
         case SET_LOGIN_NAME:
-            return ({ ...state, name: { value: action.payload, status: fieldStatus.notVisited, isValid: false} })
+            return ({ ...state, name: action.payload })
 
         case SET_LOGIN_EMAIL:
             return ({ ...state, email: action.payload })

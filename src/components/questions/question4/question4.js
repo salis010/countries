@@ -1,11 +1,15 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Question } from '../../question'
+import { Button } from '../../common'
 import { spinTheReels } from './spin-the-reels'
 import { getImage } from './get-image'
 
 const LineWrapper = styled.div`
 	display: flex;
+	justify-content: center;
+	margin-bottom: 1rem;
 `
 
 export const Question4 = ({ balance, setBalance, win, setWin, lineResult, setLineResult }) => {
@@ -24,6 +28,7 @@ export const Question4 = ({ balance, setBalance, win, setWin, lineResult, setLin
 		// 	totalWin += spinTheReels().win
 		// }
 		// console.log('RTP:', `${(totalWin / spins) * 100}%`)
+		// The RTP of the game is around 900%!
 	}
 
 	return ( 
@@ -36,7 +41,20 @@ export const Question4 = ({ balance, setBalance, win, setWin, lineResult, setLin
 				<img src={getImage(lineResult[1])} />
 				<img src={getImage(lineResult[2])} />
 			</LineWrapper>
-			<button onClick={spin}>Spin</button>
+			<Button 
+				onClick={spin}
+			>
+				Spin
+			</Button>
 		</Question>
 	 )
+}
+
+Question4.propTypes = {
+	balance: PropTypes.number.isRequired,
+	setBalance: PropTypes.func.isRequired,
+	win: PropTypes.number.isRequired,
+	setWin: PropTypes.func.isRequired,
+	lineResult: PropTypes.array.isRequired,
+	setLineResult: PropTypes.func.isRequired,	
 }

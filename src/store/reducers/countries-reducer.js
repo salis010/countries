@@ -8,7 +8,7 @@ import {
 
 const initialState = {
     country: '',
-    countryData: [],
+    countryData: {},
     matchingCountries: [],
     allCountries: [],
     filteredCountries: [],

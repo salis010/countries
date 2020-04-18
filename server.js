@@ -35,14 +35,9 @@ app.get('/question2/country/:countryName', (req, res) => {
 		.catch(err => console.log(err))
 })
 
-app.get('/question4', (req, res) => {
-	res.send('yeah')
-})
-
 app.get('/*', function(req, res) {
 	res.sendFile(__dirname + '/dist/index.html')
   })
-
 
 app.post('/login', (req, res) => {
 	getBody(req)
@@ -72,11 +67,6 @@ app.post('/register-user', (req, res) => {
             res.send({'error': err})
 		})
 })
- 
-
-
-
- 
 
 app.listen(port, function () {
 	console.log(`Listening on port ${port}...`)

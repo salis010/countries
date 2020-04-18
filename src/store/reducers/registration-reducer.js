@@ -1,4 +1,5 @@
 import { fieldStatus } from '../../constants'
+import { checkOtherFieldsValidity } from './check-other-fields-validity'
 import { 
     SET_NAME, 
     SET_EMAIL,
@@ -27,19 +28,31 @@ const initialState = {
 
 
 export const registrationReducer = (state = initialState, action) => {
+    
+    const field = action.payload
+
     switch(action.type) {
         
         case SET_NAME:
-            return ({ ...state, name: action.payload })
+            return ({ 
+                ...state, 
+                name: field, 
+                isFormValid: field.isValid &&  checkOtherFieldsValidity(state, 'name') 
+            })
 
         case SET_EMAIL:
-            return ({ ...state, email: action.payload })
+            return ({ 
+                ...state, 
+                email: field, 
+                isFormValid: field.isValid &&  checkOtherFieldsValidity(state, 'email') 
+            })
         
         case SET_PASSWORD:
-            return ({ ...state, password: action.payload })
-
-        case SET_FORM_VALID:
-            return ({ ...state, isFormValid: action.payload })
+            return ({ 
+                ...state, 
+                password: field, 
+                isFormValid: field.isValid &&  checkOtherFieldsValidity(state, 'password') 
+            })
         
         default:
             return state
