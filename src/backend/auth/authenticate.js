@@ -7,7 +7,7 @@ const authenticate = (registeredUsers, credentials) => {
 
     const promise = new Promise((resolve, reject) => {
         const user = registeredUsers.find(registeredUser => registeredUser.email == email && registeredUser.password == password)
-        console.log(credentials)
+        
         if(user) {
             const token = jwt.sign({ name: user.name }, secret)
 

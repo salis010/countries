@@ -63,7 +63,8 @@ export const Question5 = ({
 					/>
 					<Button 
 						disabled={!isFormValid} 
-						onClick={handleClick}>
+						onClick={handleClick}
+						>
 							Register
 					</Button>				
 				</Form>

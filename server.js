@@ -74,8 +74,6 @@ app.post('/login', (req, res) => {
 	})
 })
 
-
-
 app.listen(port, function () {
 	console.log(`Listening on port ${port}...`)
 })

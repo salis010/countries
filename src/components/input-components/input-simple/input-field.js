@@ -15,6 +15,7 @@ export const InputField = ({
         <Wrapper>
             <Label>{label}</Label>
             <Input 
+                name={label.toLowerCase()}
                 type={type}
                 value={text}                
                 onChange={handleChange}
