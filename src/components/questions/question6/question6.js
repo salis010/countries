@@ -42,6 +42,7 @@ export const Question6 = ({
 			{!name && 
 				<Form>
 					<InputSimple
+						name='email'
 						label='email'
 						text={email}
 						setFieldValue={setLoginEmail}

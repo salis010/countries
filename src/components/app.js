@@ -17,6 +17,7 @@ export const App = () => {
 		<Router>
 			<NavBar numberOfQuestions={6} />
 			<Switch>
+				<Route exact path='/' component={Question1} />
 				{questionComponents.map((question, i) =>
 					<Route 
 						key={i}
