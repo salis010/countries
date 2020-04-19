@@ -3,7 +3,6 @@ const axios = require('axios')
 const pruneData = require('./src/backend/prune-data')
 const getCountriesNames = require('./src/backend/get-countries-names')
 const getBody = require('./src/backend/get-body')
-const jwt = require('./src/backend/auth/jwt')
 const authenticate = require('./src/backend/auth/authenticate')
 const secret = require('./src/backend/auth/config')
 
