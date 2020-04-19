@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Question } from '../../question'
 import { InputSimple } from '../../input-components/input-simple/index'
-import { Button } from '../../common'
+import { Button, ButtonWrapper } from '../../common'
 import { baseUrl } from '../../../constants'
 
 
@@ -26,17 +26,19 @@ export const Question2 = ({
 				text={country} 
 				setFieldValue={handleChange} 
 			/>
+			<ButtonWrapper>
+				<Button 
+					onClick={getMatchingCountries}
+				>
+					Get Matches
+				</Button>
+			</ButtonWrapper>
 			{matchingCountries && <ul>
 				{matchingCountries.map(country => 
 					<li key={country}>
 						{country}
 					</li>)}
 			</ul>}
-			<Button 
-				onClick={getMatchingCountries}
-			>
-				Get Matches
-			</Button>
 		</Question>
 	 )
 }

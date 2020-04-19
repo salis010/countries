@@ -34,3 +34,16 @@ export const Button = styled.button`
         margin-top: 2rem;
     }
 `
+
+export const ButtonWrapper = styled.div`
+display: flex;
+margin-top: 2rem;
+`
+
+export const Notification = styled.p`
+    font-size: 1.6rem;
+
+    @media (min-width: 60rem) {
+        font-size: 2rem;
+    }
+`

@@ -23,21 +23,38 @@ app.get('/question1/country/:countryName', (req, res) => {
 	axios.get(`https://restcountries.eu/rest/v2/name/${country}`)
 		.then(response => pruneData(response.data[0]))
 		.then(data => res.json(data))
-		.catch(err => console.log(err))
+		.catch(err => {
+			res.status(404)
+			res.json({'Error': 'No matching country'})
+		})
 })
 
-app.get('/question2/country/:countryName', (req, res) => {
-	const country = req.params.countryName
+app.get('/question2/country/:country', (req, res) => {
+	const country = req.params.country
 
 	axios.get(`https://restcountries.eu/rest/v2/name/${country}`)
 		.then(response => getCountriesNames(response.data))
 		.then(data => res.json(data))
-		.catch(err => console.log(err))
+		.catch(err => {
+			res.status(404)
+			res.json(['Error: No matching countries'])
+		})
 })
 
 app.get('/*', function(req, res) {
 	res.sendFile(__dirname + '/dist/index.html')
   })
+
+app.post('/register-user', (req, res) => {
+	getBody(req, res)
+	.then(data => registeredUsers.push(data))
+	.then(() => res.json('User registered successfully'))
+	.catch(err => {
+		console.error('Error', err)
+		res.status(500)
+		res.send({'error': err})
+	})
+})
 
 app.post('/login', (req, res) => {
 	getBody(req)
@@ -57,16 +74,7 @@ app.post('/login', (req, res) => {
 	})
 })
 
-app.post('/register-user', (req, res) => {
-	getBody(req, res)
-		.then(data => registeredUsers.push(data))
-		.then(() => console.log(registeredUsers))
-		.catch(err => {
-			console.error('Error', err)
-            res.status(500)
-            res.send({'error': err})
-		})
-})
+
 
 app.listen(port, function () {
 	console.log(`Listening on port ${port}...`)
