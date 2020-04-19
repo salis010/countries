@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Question } from '../../question'
 import { Form } from '../../common'
 import { InputSimple } from '../../input-components/input-simple/index'
-import { Button } from '../../common'
+import { Button, Notification } from '../../common'
 import { baseUrl } from '../../../constants'
 import jwt from 'jwt-decode' 
 
@@ -39,26 +39,27 @@ export const Question6 = ({
 	 
 	return ( 
 		<Question questionNumber={6}>			
-			{name && <h2>Logged in as {name}</h2>}
-			{!name && <Form>
-				<InputSimple
-					label='email'
-					text={email}
-					setFieldValue={setLoginEmail}
-				/>
-				<InputSimple
-					type='password'
-					label='Password'
-					text={password}
-					setFieldValue={setLoginPassword}
-				/>
-				<Button 
-					onClick={login}
-				>
-					Login
-				</Button>
-			</Form>
+			{!name && 
+				<Form>
+					<InputSimple
+						label='email'
+						text={email}
+						setFieldValue={setLoginEmail}
+					/>
+					<InputSimple
+						type='password'
+						label='Password'
+						text={password}
+						setFieldValue={setLoginPassword}
+					/>
+					<Button 
+						onClick={login}
+					>
+						Login
+					</Button>
+				</Form>
 			}
+			{name && <Notification>Logged in as {name}</Notification>}
 		</Question>
 	 )
 }

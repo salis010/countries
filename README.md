@@ -2,15 +2,19 @@ NEXT:
 mongo: https://www.freecodecamp.org/news/securing-node-js-restful-apis-with-json-web-tokens-9f811a92bb52/
 
 
+Question 1:
+When country is not matched, the server is printing a lot of gibberish. And the frontend does not inform the user that nothing was found
+
 Question5: Shortcomnings:
 - does not check whether the user is already registered
 - password is saved in clear text
-- once the user presses register, nothing happens
 
 node store secret in environmental variable
 
 -Enzyme:
 -Question 1
+Mock api:
+https://medium.com/@manastunga/unit-testing-api-calls-in-react-enzyme-and-jest-133b87aaacb4
 
 -Question 4: test that the correct images are being shown
 
@@ -19,7 +23,7 @@ node store secret in environmental variable
 -Cypress?
 -Deploy to heroku
 
-
+-Once loaded, the app needs to take the user to Question 1
 
 
 ## How to run the project

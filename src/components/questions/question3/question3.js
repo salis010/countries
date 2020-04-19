@@ -1,16 +1,10 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
 import { Question } from '../../question'
 import { InputSimple } from '../../input-components/input-simple/index'
-import { Button } from '../../common'
+import { Button, ButtonWrapper } from '../../common'
 import { filterStringArray } from '../utils'
 
-
-const ButtonWrapper = styled.div`
-	display: flex;
-	margin-top: 2rem;
-`
 
 export const Question3 = ({ 
 		country, setCountry, 
@@ -34,7 +28,7 @@ export const Question3 = ({
 	const handleFilterButton = () => {
 		const filteredCountries = filterStringArray(allCountries, country)
 
-		setFilteredCountries(filteredCountries)
+		setFilteredCountries(filteredCountries.length > 0 ? filteredCountries : ['No matching countries'])
 	}
 
 	return ( 

@@ -2,16 +2,22 @@ import { baseUrl } from '../../../constants'
 
 export const registerUser = formValues => {        
 
-    const formData = new FormData()
+    const promise = new Promise((resolve, reject) => {
+
+        const formData = new FormData()
     
-    Object.keys(formValues).forEach(key => {
-        formData.set(key, formValues[key].value)
+        Object.keys(formValues).forEach(key => {
+            formData.set(key, formValues[key].value)
+        })
+                    
+        fetch(`${baseUrl}/register-user`, {
+            method: 'POST',
+            body: formData,
+        })
+        .then(response => response.json())
+        .then(message => resolve(message))
+        .catch(err => reject(err))		
     })
-                
-    fetch(`${baseUrl}/register-user`, {
-        method: 'POST',
-        body: formData,
-    })
-    .then(response => console.log(`User registered successfully: ${response.ok}`))
-    .catch(err => console.log(err))		
+
+    return promise
 }

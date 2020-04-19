@@ -4,7 +4,7 @@ import {
     SET_NAME, 
     SET_EMAIL,
     SET_PASSWORD, 
-    SET_FORM_VALID
+    SET_REGISTRATION_SUCCESSFUL_MESSAGE
 } from '../action-types'
 
 const initialState = {
@@ -24,6 +24,7 @@ const initialState = {
         isValid: false,
     },
     isFormValid: false,
+    registrationSuccessfulMessage: '',
 }
 
 
@@ -52,6 +53,12 @@ export const registrationReducer = (state = initialState, action) => {
                 ...state, 
                 password: field, 
                 isFormValid: field.isValid &&  checkOtherFieldsValidity(state, 'password') 
+            })
+
+        case SET_REGISTRATION_SUCCESSFUL_MESSAGE:
+            return ({
+                ...state,
+                registrationSuccessfulMessage: action.payload
             })
         
         default:
