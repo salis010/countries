@@ -26,15 +26,15 @@ export const Question1 = ({
 				 text={country}
 				 setFieldValue={handleChange}
 			/>
-			{countryData && <ul>
+			{countryData && 
+				<ul>
 				{Object.keys(countryData).map(item => 
 					<li key={item}>
 						{item}: {countryData[item]}
 					</li>)}
-			</ul>}
-			<Button 
-				onClick={getCountry}
-			>
+			</ul>
+			}
+			<Button onClick={getCountry} >
 				Get Data
 			</Button>
 		</Question>

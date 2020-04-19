@@ -1,4 +1,4 @@
-import getCountriesNames from '../../src/backend/get-countries-names'
+import getCountriesNames from '../../../src/backend/get-countries-names'
 
 describe('Test getCountriesNames', () => {
 

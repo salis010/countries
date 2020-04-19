@@ -1,5 +1,5 @@
-import { spinTheReels } from '../../src/components/questions/question4/spin-the-reels'
-import { getNumberOfUniqueDigits } from '../../src/components/questions/question4/get-number-of-unique-digits'
+import { spinTheReels } from '../../../src/components/questions/question4/spin-the-reels'
+import { getNumberOfUniqueDigits } from '../../../src/components/questions/question4/get-number-of-unique-digits'
 
 describe('Checks that slot game returns the correct winnings', () => {
 

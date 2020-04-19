@@ -1,4 +1,4 @@
-import { filterStringArray, isNameValid, isEmailValid, isPasswordValid } from '../../src/components/questions/utils'
+import { filterStringArray, isNameValid, isEmailValid, isPasswordValid } from '../../../src/components/questions/utils'
 
 describe('Test the functions in src/components/questions/util', () => {
 

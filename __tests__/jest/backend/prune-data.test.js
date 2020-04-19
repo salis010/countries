@@ -1,4 +1,4 @@
-import pruneData from '../../src/backend/prune-data'
+import pruneData from '../../../src/backend/prune-data'
 
 describe('Test pruneData', () => {
 

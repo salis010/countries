@@ -1,4 +1,4 @@
-import { getNumberOfUniqueDigits } from '../../src/components/questions/question4/get-number-of-unique-digits'
+import { getNumberOfUniqueDigits } from '../../../src/components/questions/question4/get-number-of-unique-digits'
 
 describe('Test getNumberOfUniqueDigits', () => {
 
