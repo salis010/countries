@@ -1,10 +1,6 @@
 NEXT:
 mongo: https://www.freecodecamp.org/news/securing-node-js-restful-apis-with-json-web-tokens-9f811a92bb52/
 
-
-Question 1:
-When country is not matched, the server is printing a lot of gibberish. And the frontend does not inform the user that nothing was found
-
 Question5: Shortcomnings:
 - does not check whether the user is already registered
 - password is saved in clear text
@@ -16,9 +12,7 @@ node store secret in environmental variable
 Mock api:
 https://medium.com/@manastunga/unit-testing-api-calls-in-react-enzyme-and-jest-133b87aaacb4
 
--Question 4: test that the correct images are being shown
 
--Question 5: test that the button is enabled if all fields are valid
 
 -Cypress?
 -Deploy to heroku

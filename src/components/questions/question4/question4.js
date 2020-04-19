@@ -21,7 +21,7 @@ export const Question4 = ({ balance, setBalance, win, setWin, lineResult, setLin
 		setBalance(balance - 1 + win)
 		setLineResult(lineResult)
 
-		// // RTP check
+		//// RTP check
 		// let totalWin = 0
 		// const spins = 1000000
 		// for(let i = 0; i < spins; i++) {
