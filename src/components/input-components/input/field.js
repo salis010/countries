@@ -15,7 +15,8 @@ const Wrapper = styled.div`
     position: relative;
     border-radius: ${borderRadius};
     box-shadow: 0px 10px 20px ${lgrey};
-
+    height: 75px;
+    
     @media (min-width: ${breakpoint}) {
         height: 90px;
     }
